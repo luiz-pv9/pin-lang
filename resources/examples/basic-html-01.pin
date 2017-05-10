@@ -1,0 +1,3 @@
+module Example.BasicHtml01 exposing (..)
+
+message = <div>Hello, world!</div>
