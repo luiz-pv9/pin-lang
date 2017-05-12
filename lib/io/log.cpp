@@ -1,15 +1,7 @@
 #include "io/log.h"
 
-pin::Log pin::log;
+pin::Log pin::log = pin::Log(LogStdout);
 
-void pin::Log::info(const std::string& msg) const
-{
-  std::cout << "[INFO] " << msg << std::endl;
-}
+pin::Log::Log(LogOutput output) : output(output) {}
 
-void pin::Log::highlight(const std::string& msg) const
-{
-  std::cout << "\n\n=========\n" 
-            << msg
-            << "\n=========\n\n\n";
-}
+pin::LogPrinterStdout pin::Log::info() { return LogPrinterStdout("[INFO] "); }
